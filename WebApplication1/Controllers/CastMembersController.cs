@@ -10,9 +10,10 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize]
     public class CastMembersController : Controller
     {
-        private DataContext db = new DataContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: CastMembers
         public ActionResult Index()
@@ -39,7 +40,7 @@ namespace WebApplication1.Controllers
         // GET: CastMembers/Create
         public ActionResult Create()
         {
-            ViewBag.ActorId = new SelectList(db.Actors, "ActorId", "Name");
+            ViewBag.ActorId = new SelectList(db.Actors, "ActorId", "FirstName");
             ViewBag.DVDId = new SelectList(db.DVDDetails, "DVDId", "Title");
             return View();
         }
@@ -58,7 +59,7 @@ namespace WebApplication1.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.ActorId = new SelectList(db.Actors, "ActorId", "Name", castMember.ActorId);
+            ViewBag.ActorId = new SelectList(db.Actors, "ActorId", "FirstName", castMember.ActorId);
             ViewBag.DVDId = new SelectList(db.DVDDetails, "DVDId", "Title", castMember.DVDId);
             return View(castMember);
         }
@@ -75,7 +76,7 @@ namespace WebApplication1.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ActorId = new SelectList(db.Actors, "ActorId", "Name", castMember.ActorId);
+            ViewBag.ActorId = new SelectList(db.Actors, "ActorId", "FirstName", castMember.ActorId);
             ViewBag.DVDId = new SelectList(db.DVDDetails, "DVDId", "Title", castMember.DVDId);
             return View(castMember);
         }
@@ -93,7 +94,7 @@ namespace WebApplication1.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.ActorId = new SelectList(db.Actors, "ActorId", "Name", castMember.ActorId);
+            ViewBag.ActorId = new SelectList(db.Actors, "ActorId", "FirstName", castMember.ActorId);
             ViewBag.DVDId = new SelectList(db.DVDDetails, "DVDId", "Title", castMember.DVDId);
             return View(castMember);
         }

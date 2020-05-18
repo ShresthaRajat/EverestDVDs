@@ -10,9 +10,10 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize]
     public class ActorsController : Controller
     {
-        private DataContext db = new DataContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Actors
         public ActionResult Index()
@@ -46,7 +47,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ActorId,Name,Photo,DOB,Gender,Nationality")] Actor actor)
+        public ActionResult Create([Bind(Include = "ActorId,FirstName,LastName,Photo,DOB,Gender,Nationality")] Actor actor)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +79,7 @@ namespace WebApplication1.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ActorId,Name,Photo,DOB,Gender,Nationality")] Actor actor)
+        public ActionResult Edit([Bind(Include = "ActorId,FirstName,LastName,Photo,DOB,Gender,Nationality")] Actor actor)
         {
             if (ModelState.IsValid)
             {
