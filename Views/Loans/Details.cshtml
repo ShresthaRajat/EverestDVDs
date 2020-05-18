@@ -1,0 +1,58 @@
+﻿@model Everest_DVD_Store.Models.Loans
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Loans</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Copiez.DVDTilte)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Copiez.DVDTilte)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanTypes.Loan_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanTypes.Loan_Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Memberz.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Memberz.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IssueDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IssueDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReturnDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReturnDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

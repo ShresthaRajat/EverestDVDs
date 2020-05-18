@@ -29,5 +29,23 @@ namespace Everest_DVD_Store.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Everest_DVD_Store.Models.Actors> Actors { get; set; }
+
+        public System.Data.Entity.DbSet<Everest_DVD_Store.Models.CastMembers> CastMembers { get; set; }
+
+        public System.Data.Entity.DbSet<Everest_DVD_Store.Models.DVDs> DVDs { get; set; }
+
+        public System.Data.Entity.DbSet<Everest_DVD_Store.Models.Copies> Copies { get; set; }
+
+        public System.Data.Entity.DbSet<Everest_DVD_Store.Models.DVDCategories> DVDCategories { get; set; }
+
+        public System.Data.Entity.DbSet<Everest_DVD_Store.Models.Loans> Loans { get; set; }
+
+        public System.Data.Entity.DbSet<Everest_DVD_Store.Models.LoanType> LoanTypes { get; set; }
+
+        public System.Data.Entity.DbSet<Everest_DVD_Store.Models.Members> Members { get; set; }
+
+        public System.Data.Entity.DbSet<Everest_DVD_Store.Models.MembershipCategories> MembershipCategories { get; set; }
     }
 }
