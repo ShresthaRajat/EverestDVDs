@@ -12,7 +12,7 @@ namespace WebApplication1.Controllers
 {
     public class LoansController : Controller
     {
-        private DataContext db = new DataContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Loans
         public ActionResult Index()

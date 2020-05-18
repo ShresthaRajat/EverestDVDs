@@ -12,7 +12,7 @@ namespace WebApplication1.Controllers
 {
     public class MemberCategoriesController : Controller
     {
-        private DataContext db = new DataContext();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: MemberCategories
         public ActionResult Index()
