@@ -1,0 +1,26 @@
+﻿@model Everest_DVD_Store.Models.LoanType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LoanType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LoanRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoanRate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Loan_Type }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
