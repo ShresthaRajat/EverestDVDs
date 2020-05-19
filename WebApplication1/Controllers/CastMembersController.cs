@@ -15,6 +15,19 @@ namespace WebApplication1.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult FilterByLastName(string LastName)
+        {
+            ViewBag.LastName = db.Actors.ToList();
+            ViewBag.LastName = db.Actors.ToList();
+            if (String.IsNullOrEmpty(LastName))
+            {
+                return View();
+
+            }
+            var data = db.CastMembers.Include(d => d.DVDDetails).Include(d => d.Actors).Where(x => x.Actors.LastName == LastName).ToList();
+            return View(data);
+        }
+
         // GET: CastMembers
         public ActionResult Index()
         {

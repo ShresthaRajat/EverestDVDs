@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WebApplication1.Models.CastMember>
+
+@{
+    ViewBag.Title = "FilterByLastName";
+}
+
+<h2>FilterByLastName</h2>
+
+@if (Model == null)
+{
+    <form action="/CastMembers/FilterByLastName" method="get">
+
+        @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null);
+        <button type="submit"> SUBMIT </button>
+    </form>
+}
+else
+{
+    <form action="/CastMembers/FilterByLastName" method="get">
+
+        @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null);
+        <button type="submit"> SUBMIT </button>
+    </form>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Actors.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DVDDetails.Title)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Actors.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Actors.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DVDDetails.Title)
+                </td>
+                =
+            </tr>
+        }
+
+    </table>
+}
