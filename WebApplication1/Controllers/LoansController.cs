@@ -45,6 +45,24 @@ namespace WebApplication1.Controllers
             return View();
         }
 
+        // GET: Loans/Loan31Days
+        public ActionResult Loan31Days(String Name)
+        {
+           
+            ViewBag.MemberID = db.Members.ToList();
+            if (String.IsNullOrEmpty(Name))
+            {
+                return View();
+
+            }
+            var baselineDate = DateTime.Now.AddDays(-31);
+
+       
+            var data = db.Loans.Include(d => d.Members).Include(d => d.DVDDetails).Where(d =>d.IssuedDate >= baselineDate && d.Members.Name==Name).ToList();
+
+            return View(data);
+        }
+
         // POST: Loans/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
