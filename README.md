@@ -46,7 +46,22 @@ The following functions as noted from the requirements are similar:
 | 1, 2, 3, 5 | Simple queries requiring user Input.|
 | 4, 8, 11, 12, 13 | Simple queries to list the contents according to the stored data.|
 | 6, 7 | Issuing and Returning the DVD Copies.|
-| 9 | Adding new DVD (Complex)(also need to add castmembers.|
+| 9 | Adding new DVD (Complex)(also need to add castmembers.)|
 | 10 | Removing 365 days old DVD Copies.|
 
 These tasks will be assigned to each members respectively.
+
+Available Endpoints
+
+```
+CastMembers/FilterByLastName
+Loans/Loan31Days
+Actors
+CastMembers
+DVDDetails
+DVDProducers
+Loans
+MemberCategories
+Members
+producers
+```
