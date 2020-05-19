@@ -291,6 +291,7 @@
     <Content Include="Views\MemberCategories\Details.cshtml" />
     <Content Include="Views\MemberCategories\Edit.cshtml" />
     <Content Include="Views\MemberCategories\Index.cshtml" />
+    <Content Include="Views\CastMembers\FilterByLastName.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
