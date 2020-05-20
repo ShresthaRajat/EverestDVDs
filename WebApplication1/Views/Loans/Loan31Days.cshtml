@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebApplication1.Models.Loan>
+
+@{
+    ViewBag.Title = "Loan31Days";
+}
+
+<h2>Loan31Days</h2>
+
+@if (Model == null)
+{
+    <form action="/Loans/Loan31Days" method="get">
+
+        @Html.DropDownList("Name", new SelectList(ViewBag.MemberID, "Name", "Name"), null, null);
+        <button type="submit"> SUBMIT </button>
+    </form>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DVDDetails.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DVDDetails.DVDId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Members.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IssuedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReturnedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalFine)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DVDDetails.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Members.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IssuedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReturnedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalFine)
+                </td>
+
+            </tr>
+        }
+
+
+    </table>
+}

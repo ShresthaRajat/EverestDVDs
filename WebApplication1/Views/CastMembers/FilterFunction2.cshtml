@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WebApplication1.Models.CastMember>
+
+@{
+    ViewBag.Title = "FilterFunction2";
+}
+
+<h2>FilterFunction2</h2>
+
+@if (Model == null)
+{
+    <form action="/CastMembers/FilterFunction2" method="get">
+
+        @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
+        <button type="submit"> SUBMIT </button>
+    </form>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Actors.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DVDDetails.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DVDDetails.NoOfCopy)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Actors.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DVDDetails.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DVDDetails.NoOfCopy)
+                </td>
+            </tr>
+        }
+
+    </table>
+}

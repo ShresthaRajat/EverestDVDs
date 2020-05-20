@@ -1,0 +1,50 @@
+﻿@model IEnumerable<WebApplication1.Models.DVDProducerActors>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <thead class="bg-dark text-white">
+        <tr>
+
+            <th>
+                First Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                DVD Title
+            </th>
+            <th>
+                Producer Name
+            </th>
+
+            <th>
+                Date Added
+
+            </th>
+        </tr>
+
+        </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+
+            <td>@item.castMember.Actors.FirstName</td>
+            <td>@item.castMember.Actors.LastName</td>
+            <td>@item.castMember.DVDDetails.Title</td>
+            <td>@item.dVDProducer.Producers.ProducerName</td>
+            <td>@item.castMember.DVDDetails.DateAdded</td>
+        </tr>
+
+        }
+    </tbody>
+</table>

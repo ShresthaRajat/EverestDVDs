@@ -15,6 +15,55 @@ namespace WebApplication1.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult FilterByLastName(string LastName)
+        {
+            ViewBag.LastName = db.Actors.ToList();
+            ViewBag.LastName = db.Actors.ToList();
+            if (String.IsNullOrEmpty(LastName))
+            {
+                return View();
+
+            }
+            var data = db.CastMembers.Include(d => d.DVDDetails).Include(d => d.Actors).Where(x => x.Actors.LastName == LastName).ToList();
+            return View(data);
+        }
+
+        public ActionResult DisplayFilmProducerActor(string LastName)
+        {
+           
+                List<CastMember> castMembers = db.CastMembers.ToList();
+                List<DVDProducer> dvdproducers = db.DVDProducers.ToList();
+
+            var data = from c in castMembers
+                       join p in dvdproducers on c.DVDId equals p.DVDId
+                       select new
+                       {
+                           c.DVDDetails.Title, c.DVDDetails.StudioName, c.Actors.FirstName, c.Actors.LastName, c.DVDDetails.DateAdded,
+                           p.Producers.ProducerName
+                       };
+            var sorteddata = data.OrderBy(t => t.LastName).OrderBy(d=>d.DateAdded);
+                        
+
+
+                return View(data);
+
+            
+           
+        }
+        // Function 2
+        public ActionResult FilterFunction2(string LastName)
+        {
+            ViewBag.LastName = db.Actors.ToList();
+            if (String.IsNullOrEmpty(LastName))
+            {
+                return View();
+
+            }
+            var data = db.CastMembers.Include(d => d.DVDDetails).Include(d => d.Actors).Where(x => x.Actors.LastName == LastName).ToList();
+            return View(data);
+        }
+
+
         // GET: CastMembers
         public ActionResult Index()
         {

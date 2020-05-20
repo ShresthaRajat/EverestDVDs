@@ -37,12 +37,45 @@ namespace WebApplication1.Controllers
             return View(loan);
         }
 
+        // Function 5
+
+        public ActionResult FilterFunction5(int? NoOfCopy)
+        {
+            ViewBag.NoOfCopy = db.DVDDetails.ToList();
+            if (NoOfCopy.GetValueOrDefault(0) == 0)
+            {
+                return View();
+
+            }
+            var data = db.Loans.Include("DVDDetails").Include("Members").Where(x => x.DVDDetails.NoOfCopy == NoOfCopy).ToList();
+
+
+            return View(data);
+        }
+
+
         // GET: Loans/Create
         public ActionResult Create()
         {
             ViewBag.DVDId = new SelectList(db.DVDDetails, "DVDId", "Title");
             ViewBag.MemberId = new SelectList(db.Members, "MemberId", "Name");
             return View();
+        }
+        public ActionResult Loan31Days(String Name)
+        {
+           
+            ViewBag.MemberID = db.Members.ToList();
+            if (String.IsNullOrEmpty(Name))
+            {
+                return View();
+
+            }
+            var baselineDate = DateTime.Now.AddDays(-31);
+
+       
+            var data = db.Loans.Include(d => d.Members).Include(d => d.DVDDetails).Where(d =>d.IssuedDate >= baselineDate && d.Members.Name==Name).ToList();
+
+            return View(data);
         }
 
         // POST: Loans/Create

@@ -45,5 +45,7 @@ namespace WebApplication1.Models
         public System.Data.Entity.DbSet<WebApplication1.Models.Member> Members { get; set; }
 
         public System.Data.Entity.DbSet<WebApplication1.Models.MemberCategory> MemberCategories { get; set; }
+
+        public System.Data.Entity.DbSet<WebApplication1.Models.DVDProducerActors> DVDProducerActors { get; set; }
     }
 }

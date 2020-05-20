@@ -171,6 +171,7 @@
     <Compile Include="Controllers\ActorsController.cs" />
     <Compile Include="Controllers\CastMembersController.cs" />
     <Compile Include="Controllers\DVDDetailsController.cs" />
+    <Compile Include="Controllers\DVDProducerActorsController.cs" />
     <Compile Include="Controllers\DVDProducersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoansController.cs" />
@@ -181,11 +182,25 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005181723481_InitialCreate.cs" />
+    <Compile Include="Migrations\202005181723481_InitialCreate.Designer.cs">
+      <DependentUpon>202005181723481_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005191318563_InitialCreate1.cs" />
+    <Compile Include="Migrations\202005191318563_InitialCreate1.Designer.cs">
+      <DependentUpon>202005191318563_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005200559049_InitialCreate2.cs" />
+    <Compile Include="Migrations\202005200559049_InitialCreate2.Designer.cs">
+      <DependentUpon>202005200559049_InitialCreate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Actor.cs" />
     <Compile Include="Models\CastMember.cs" />
     <Compile Include="Models\DVDDetail.cs" />
     <Compile Include="Models\DVDProducer.cs" />
+    <Compile Include="Models\DVDProducerActors.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Loan.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -291,6 +306,15 @@
     <Content Include="Views\MemberCategories\Details.cshtml" />
     <Content Include="Views\MemberCategories\Edit.cshtml" />
     <Content Include="Views\MemberCategories\Index.cshtml" />
+    <Content Include="Views\CastMembers\FilterByLastName.cshtml" />
+    <Content Include="Views\Loans\Loan31Days.cshtml" />
+    <Content Include="Views\DVDProducerActors\Create.cshtml" />
+    <Content Include="Views\DVDProducerActors\Delete.cshtml" />
+    <Content Include="Views\DVDProducerActors\Details.cshtml" />
+    <Content Include="Views\DVDProducerActors\Edit.cshtml" />
+    <Content Include="Views\DVDProducerActors\Index.cshtml" />
+    <Content Include="Views\CastMembers\FilterFunction2.cshtml" />
+    <Content Include="Views\Loans\FilterFunction5.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -307,6 +331,17 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202005181723481_InitialCreate.resx">
+      <DependentUpon>202005181723481_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005191318563_InitialCreate1.resx">
+      <DependentUpon>202005191318563_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005200559049_InitialCreate2.resx">
+      <DependentUpon>202005200559049_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
