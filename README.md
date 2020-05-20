@@ -54,14 +54,17 @@ These tasks will be assigned to each members respectively.
 Available Endpoints
 
 ```
-CastMembers/FilterByLastName
-Loans/Loan31Days
-Actors
-CastMembers
-DVDDetails
-DVDProducers
-Loans
-MemberCategories
-Members
-producers
+/CastMembers/FilterByLastName
+/CastMembers/FilterFunction2
+/Loans/Loan31Days
+/Loans/FilterFunction5  --Not working
+
+/Actors
+/CastMembers
+/DVDDetails
+/DVDProducers
+/Loans
+/MemberCategories
+/Members
+/producers
 ```
