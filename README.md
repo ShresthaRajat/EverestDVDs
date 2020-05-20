@@ -54,8 +54,11 @@ These tasks will be assigned to each members respectively.
 Available Endpoints
 
 ```
+Function1-5
+
 /CastMembers/FilterByLastName
 /CastMembers/FilterFunction2
+/CastMembers/DisplayFilmProducerActor
 /Loans/Loan31Days
 /Loans/FilterFunction5  --Not working
 
