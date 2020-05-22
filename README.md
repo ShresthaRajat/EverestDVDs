@@ -65,6 +65,9 @@ Function1-5
 /DVDProducerActors
 /Loans/Loan31Days
 /Loans/FilterFunction5
+/Loans/FunctionNo8
+/Loans/Function12
+/Loans/Function13
 
 /Actors
 /CastMembers
