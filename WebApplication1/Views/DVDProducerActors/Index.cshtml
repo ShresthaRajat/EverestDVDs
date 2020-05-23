@@ -67,14 +67,15 @@
                             <tbody>
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
+                                <tr>
 
-                                        <td>@item.castMember.Actors.FirstName</td>
-                                        <td>@item.castMember.Actors.LastName</td>
-                                        <td>@item.castMember.DVDDetails.Title</td>
-                                        <td>@item.dVDProducer.Producers.ProducerName</td>
-                                        <td>@item.castMember.DVDDetails.DateAdded</td>
-                                    </tr>
+                                    <td>@item.castMember.Actors.FirstName</td>
+                                    <td>@item.castMember.Actors.LastName</td>
+                                    <td>@item.castMember.DVDDetails.Title</td>
+                                    <td>@item.dVDProducer.Producers.ProducerName</td>
+                                    <td>@item.castMember.DVDDetails.DateAdded</td>
+                                    <td>@item.castMember.DVDDetails.DVDCoverPath</td>
+                                </tr>
 
                                 }
 

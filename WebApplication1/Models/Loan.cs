@@ -11,13 +11,9 @@ namespace WebApplication1.Models
     {
         [Key]
         public int LoanId { get; set; }
-
-
         public DateTime IssuedDate { get; set; }
         public DateTime? ReturnedDate { get; set; }
         public int TotalFine { get; set; }
-
-
         public int DVDId { get; set; }
         [ForeignKey("DVDId")]
         public virtual DVDDetail DVDDetails { get; set; }
