@@ -7,39 +7,237 @@
 }
 
 @*<h2>Hello Index</h2>*@
-<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Actor Table</h4>
+<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Dashboard</h4>
 <hr />
-<div class="d-flex align-items-center">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb m-0 p-0">
-            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
-            <li class="breadcrumb-item text-muted active" aria-current="page">Actors</li>
-        </ol>
-    </nav>
+@*<div class="d-flex align-items-center">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb m-0 p-0">
+                <li class="breadcrumb-item"><a href="index.html" class="text-muted">Dashboard</a></li>
+            </ol>
+        </nav>
 
-</div>
-
-@*<div class="col-5 align-self-center">
-        <div class="customize-input float-right">
-            <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
-                <option selected>Aug 19</option>
-                <option value="1">July 19</option>
-                <option value="2">Jun 19</option>
-            </select>
-        </div>
     </div>*@
-    </div>
+
 <hr />
 <div class="container-fluid">
     <div class="row">
-        <div class="col-12">
-            <div class="card">
+        @*<div class="col-12 mt-4">
+                <h4 class="mb-0">Card styles</h4>
+                <p class="text-muted mt-0 font-12">
+                    Cards include various options for customizing their
+                    backgrounds, borders, and color.<code>.card-primary info, warning, danger</code>
+                </p>
+            </div>*@
+        <div class="col-md-6">
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">Actors</h4>
+                </div>
                 <div class="card-body">
-                    <h4 class="card-title">Actor Table</h4>
-                    <hr />
-                    asdasdasd
-                    <hr />
-                                   </div>
+                    <h3 class="card-title text-white">Actors Details</h3>
+                    @*<p class="card-text">
+                            With supporting text below as a natural lead-in to
+                            additional
+                            content.
+                        </p>*@
+                    <a href="~/Actors" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-white bg-info">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">Producers</h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">Producers Details</h3>
+                    @*<p class="card-text">
+                            With supporting text below as a natural lead-in to
+                            additional
+                            content.
+                        </p>*@
+                    <a href="~/Producers" class="btn btn-dark">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card text-white bg-primary">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">DVD </h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">DVD Details</h3>
+
+                    <a href="~/DVDDetails" class="btn btn-dark">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-white bg-danger">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">DVD Cast Member</h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">DVD Cast Members</h3>
+
+                    <a href="~/CastMembers" class="btn btn-dark">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card text-white bg-warning">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">DVDProducers</h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">DVD Producers Details</h3>
+                    <a href="~/DVDProducers" class="btn btn-dark">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-white bg-success">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">Members</h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">Members Details</h3>
+
+                    <a href="~/Members" class="btn btn-dark">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @*<div class="col-12 mt-4">
+                <h4 class="mb-0">Card styles</h4>
+                <p class="text-muted mt-0 font-12">
+                    Cards include various options for customizing their
+                    backgrounds, borders, and color.<code>.card-primary info, warning, danger</code>
+                </p>
+            </div>*@
+        <div class="col-md-6">
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">Categories</h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">Categories Details</h3>
+
+                    <a href="~/MemberCategories" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-white bg-info">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">Loans</h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">Loans Details</h3>
+                    @*<p class="card-text">
+                            With supporting text below as a natural lead-in to
+                            additional
+                            content.
+                        </p>*@
+                    <a href="~/Loans" class="btn btn-dark">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card text-white bg-primary">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">Loans Filter</h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">Loans Filter by 31 Days Details</h3>
+
+                    <a href="~/Loans/Loan31Days" class="btn btn-dark">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-white bg-danger">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">Loans Filter Function5 </h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">Loans Filter Function 5 Details</h3>
+
+                    <a href="~/Loans/FilterFunction5" class="btn btn-dark">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card text-white bg-warning">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">Loans Filter Function 8</h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">Loans Filter Function 8 Details</h3>
+                    <a href="~/Loans/FunctionNo8" class="btn btn-dark">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-white bg-success">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">Loans Filter Function 12</h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">Loans Filter Function 12 Details</h3>
+
+                    <a href="~/Loans/Function12" class="btn btn-dark">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @*<div class="col-12 mt-4">
+                <h4 class="mb-0">Card styles</h4>
+                <p class="text-muted mt-0 font-12">
+                    Cards include various options for customizing their
+                    backgrounds, borders, and color.<code>.card-primary info, warning, danger</code>
+                </p>
+            </div>*@
+        <div class="col-md-6">
+            <div class="card text-white bg-dark">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">Loans Filter Function 13</h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">Loans Filter Function 13 Details</h3>
+                    @*<p class="card-text">
+                            With supporting text below as a natural lead-in to
+                            additional
+                            content.
+                        </p>*@
+                    <a href="~/Loans/Function13" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card text-white bg-info">
+                <div class="card-header">
+                    <h4 class="mb-0 text-white">Producers</h4>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title text-white">Producers Details</h3>
+                    @*<p class="card-text">
+                            With supporting text below as a natural lead-in to
+                            additional
+                            content.
+                        </p>*@
+                    <a href="~/Producers" class="btn btn-dark">Go somewhere</a>
+                </div>
             </div>
         </div>
     </div>
