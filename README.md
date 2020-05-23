@@ -34,20 +34,24 @@ https://github.com/ShresthaRajat/EverestDVDs.git
 ### ER-Diagram:
 The following Entity Relationship Diagram contains only the most important bare minimum entities and atributes. If this ER diagram is not valid please open a issue with details on why it is not valid.
 
-![ERD](https://github.com/ShresthaRajat/EverestDVDs/blob/dev/EverestDVDs_ERD.svg)
+![ERD](https://github.com/ShresthaRajat/EverestDVDs/blob/master/EverestDVDs_ERD.svg)
 
 
 ## 4. Work Division:
 To divide the load of the groupwork into smaller chunks of simpler tasks.
 
 The following functions as noted from the requirements are similar:
-|Functions|Summary|
-|:------------:|:-----------------------------------------------|
-| 1, 2, 3, 5 | Simple queries requiring user Input.|
-| 4, 8, 11, 12, 13 | Simple queries to list the contents according to the stored data.|
-| 6, 7 | Issuing and Returning the DVD Copies.|
-| 9 | Adding new DVD (Complex)(also need to add castmembers.)|
-| 10 | Removing 365 days old DVD Copies.|
+|Functions|Summary|Status|
+|:------------:|:-----------------------------------------------:|:-------------:|
+| 1, 2, 3, 5 | Simple queries requiring user Input.|Finished|
+| 4, 8 | Simple queries to list the contents according to the stored data.|Finished|
+| 6, 7 | Issuing and Returning the DVD Copies.|Finished|
+| 9 | Adding new DVD (Complex)(also need to add castmembers.)|Not imp(AJAX)|
+| 10 | Removing 365 days old DVD Copies.|Incomplete(Pragati)|
+|11|Copies on loan order in order of date|Incomplete|
+|12|List users who havent loned in past 31 days. (Ignore users who havent Done |Finished|
+|13|List all of the dvds which have been loned in the last 31 days. |Finished|
+|14|UAC and adding manager| Incomplete|
 
 These tasks will be assigned to each members respectively.
 
@@ -61,6 +65,9 @@ Function1-5
 /DVDProducerActors
 /Loans/Loan31Days
 /Loans/FilterFunction5
+/Loans/FunctionNo8
+/Loans/Function12
+/Loans/Function13
 
 /Actors
 /CastMembers
