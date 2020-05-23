@@ -1,0 +1,74 @@
+﻿@model WebApplication1.Models.DVDDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DVDDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoOfCopy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoOfCopy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AgeRestriction)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AgeRestriction)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudioName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudioName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DVDCoverPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DVDCoverPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateAdded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateAdded)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DVDId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

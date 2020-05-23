@@ -1,0 +1,113 @@
+﻿@model IEnumerable<WebApplication1.Models.DVDProducer>
+@{
+    Layout = "~/Views/Shared/Loggedin.cshtml";
+}
+@{
+    ViewBag.Title = "Index";
+}
+
+<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">DVD Producers Table</h4>
+<hr />
+<div class="d-flex align-items-center">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb m-0 p-0">
+            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
+            <li class="breadcrumb-item text-muted active" aria-current="page">DVD Producers Table</li>
+        </ol>
+    </nav>
+
+</div>
+
+@*<div class="col-5 align-self-center">
+        <div class="customize-input float-right">
+            <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                <option selected>Aug 19</option>
+                <option value="1">July 19</option>
+                <option value="2">Jun 19</option>
+            </select>
+        </div>
+    </div>*@
+    </div>
+<hr />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">DVD Producers Table</h4>
+                    <hr />
+                    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success btn-large" })
+                    <hr />
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.DVDDetails.Title)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Producers.ProducerName)
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DVDDetails.Title)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Producers.ProducerName)
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                                            @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                                        </td>
+                                    </tr>
+                                }
+
+                                </tbody>
+</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DVDDetails.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Producers.ProducerName)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DVDDetails.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Producers.ProducerName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>*@

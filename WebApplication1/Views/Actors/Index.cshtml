@@ -1,0 +1,165 @@
+﻿@model IEnumerable<WebApplication1.Models.Actor>
+@{
+    Layout = "~/Views/Shared/Loggedin.cshtml";
+}
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<h2>Hello Index</h2>*@
+<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Actor Table</h4>
+<hr/>
+<div class="d-flex align-items-center">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb m-0 p-0">
+            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
+            <li class="breadcrumb-item text-muted active" aria-current="page">Actors</li>
+        </ol>
+    </nav>
+
+</div>
+
+        @*<div class="col-5 align-self-center">
+                <div class="customize-input float-right">
+                    <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                        <option selected>Aug 19</option>
+                        <option value="1">July 19</option>
+                        <option value="2">Jun 19</option>
+                    </select>
+                </div>
+            </div>*@
+    </div>
+    <hr />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Actor Table</h4>
+                        <hr />
+                        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success btn-large" })
+                        <hr />
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.FirstName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.LastName)
+                                        </th>
+
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DOB)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Gender)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Nationality)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.ImagePath)
+                                        </th>
+                                        <th>
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.FirstName)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.LastName)
+                                        </td>
+
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.DOB)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Gender)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Nationality)
+                                        </td>
+                                        <td>
+                                            <img src="@Url.Content(item.ImagePath)" width="150" height="150" />
+                                        </td>
+                                        <td>
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.ActorId }, new { @class = "btn btn-success btn-primary" })
+                                            @Html.ActionLink("Details", "Details", new { id = item.ActorId }, new { @class = "btn btn-success btn-info" })
+                                            @Html.ActionLink("Delete", "Delete", new { id = item.ActorId }, new { @class = "btn btn-success btn-danger" })
+                                        </td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @*<p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ImagePath)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DOB)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gender)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nationality)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        <img src="@Url.Content(item.ImagePath)" width="150" height="150" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DOB)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gender)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nationality)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ActorId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ActorId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ActorId })
+                    </td>
+                </tr>
+            }
+
+        </table>*@

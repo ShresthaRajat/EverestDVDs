@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Everest DVD Library</title>
+    <link href="~/Images/favicon.ico" rel="shortcut icon" />
+
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/resources/bootstrap/js/bootstrap.min.js"></script>
+    <link href="~/resources/css/smoothproducts.css" rel="stylesheet" />
+    <link href="~/resources/fonts/simple-line-icons.min.css" rel="stylesheet" />
+    <link href="~/resources/fonts/fontawesome-all.min.css" rel="stylesheet" />
+    <script src="~/resources/js/jquery.min.js"></script>
+    <script src="~/resources/js/smoothproducts.min.js"></script>
+    <script src="~/resources/js/theme.js"></script>
+    <script src="~/resources/js/bs-init.js"></script>
+    <script src="~/resources/js/chart.min.js"></script>
+
+
+</head>
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container">
+            <a class="navbar-brand logo" href="#">EverestDVDLibrary</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                </a>
+                <ul class="nav navbar-nav mr-auto ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="~/CastMembers/FilterByLastName"> DVDs</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="~/castmembers/FilterFunction2">DVD Count</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="~/home.cshtml">@Html.ActionLink("Home", "Index", "Home")</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="~/about.cshtml">@Html.ActionLink("About", "About", "Home")</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="~/contact-us.cshtml">@Html.ActionLink("Contact", "Contact", "Home")</a></li>
+                    @Html.Partial("_LoginPartial")
+                </ul>
+                
+            </div>
+    </nav>
+
+    <div class="body-content">
+        @RenderBody()
+    </div>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Sign up</a></li>
+                        <li><a href="#">Downloads</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="#">Company Information</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Reviews</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Help desk</a></li>
+                        <li><a href="#">Forums</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p class="text-muted copyright">Copyright&nbsp;© EverestDVDLibrary 2020</p>
+        </div>
+    </footer>
+</body>
+@RenderSection("scripts", required: false)
+
+
+
+
+</html>

@@ -1,0 +1,106 @@
+﻿@model WebApplication1.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+@*<h2>@ViewBag.Title.</h2>*@
+<nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+    <div class="container">
+        <a class="navbar-brand logo" href="index.html">EverestDVDLibrary</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+        </a>
+
+        <ul class="nav navbar-nav ml-auto">
+            <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html">@Html.ActionLink("Home", "Index", "Home")</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="aboutus.html">@Html.ActionLink("About", "About", "Home")</a></li>
+            <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html">@Html.ActionLink("Contact", "Contact", "Home")</a></li>
+        </ul>
+        @Html.Partial("_LoginPartial")
+
+
+</nav>
+
+<main class="page contact-us-page">
+    <section class="clean-block clean-form dark">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Register</h2>
+                </div>
+                <form>
+                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-primary" value="Register" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        }
+    </section>
+</main>
+<footer class="page-footer dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <h5>Get started</h5>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Sign up</a></li>
+                    <li><a href="#">Downloads</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>About us</h5>
+                <ul>
+                    <li><a href="#">Company Information</a></li>
+                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>Support</h5>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Help desk</a></li>
+                    <li><a href="#">Forums</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-3">
+                <h5>Legal</h5>
+                <ul>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Terms of Use</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <p class="text-muted copyright">Copyright&nbsp;© EverestDVDLibrary 2020</p>
+    </div>
+</footer>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

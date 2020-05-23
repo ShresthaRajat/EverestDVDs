@@ -1,0 +1,116 @@
+﻿@model IEnumerable<WebApplication1.Models.Function12Model>
+
+@{
+    Layout = "~/Views/Shared/Loggedin.cshtml";
+}
+@{
+    ViewBag.Title = "Index";
+}
+<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Loans Filter No.12 Table</h4>
+<hr />
+<div class="d-flex align-items-center">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb m-0 p-0">
+            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
+            <li class="breadcrumb-item text-muted active" aria-current="page">Loans Table</li>
+        </ol>
+    </nav>
+
+</div>
+
+@*<div class="col-5 align-self-center">
+        <div class="customize-input float-right">
+            <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                <option selected>Aug 19</option>
+                <option value="1">July 19</option>
+                <option value="2">Jun 19</option>
+            </select>
+        </div>
+    </div>*@
+    </div>
+<hr />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Loans Table</h4>
+                    <hr />
+                    <hr />
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tbody>
+                            <tr>
+                                <th> Title</th>
+                                <th> Issue Date</th>
+                                <th> Gap</th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @item.dVDDetail.Title
+
+                                    </td>
+                                    <td>
+                                        @item.loan.IssuedDate
+
+                                    </td>
+                                    <td>
+                                        @Html.Label("", DateTime.Now.Subtract(item.loan.IssuedDate).Days.ToString())
+
+                                    </td>
+
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <tr>
+            <th> Title</th>
+            <th> Issue Date</th>
+            <th> Gap</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @item.dVDDetail.Title
+
+                </td>
+                <td>
+                    @item.loan.IssuedDate
+
+                </td>
+                <td>
+                    @Html.Label("", DateTime.Now.Subtract(item.loan.IssuedDate).Days.ToString())
+
+                </td>
+
+            </tr>
+        }
+
+    </table>*@
