@@ -6,86 +6,114 @@
     ViewBag.Title = "FilterFunction2";
 }
 
-@*<h2>FilterFunction2</h2>*@
+<br />
+<br />
+<br />
+<br />
 
-<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Cast Members Table</h4>
-<hr />
-<div class="d-flex align-items-center">
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb m-0 p-0">
-            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
-            <li class="breadcrumb-item text-muted active" aria-current="page">Cast Memebers</li>
-        </ol>
-    </nav>
-
-</div>
 <div class="container-fluid">
+
     <div class="row">
-        <div class="col-12">
+        <div class="col-8">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Select Actor's Last name to view DVD Titles and their count</h4>
+                    <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Cast Members Table</h4>
                     <hr />
-                    @if (Model == null)
-                    {
-                        <form action="/CastMembers/FilterFunction2" method="get">
+                    <div class="d-flex align-items-center">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb m-0 p-0">
+                                <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
+                                <li class="breadcrumb-item text-muted active" aria-current="page">DVD Count</li>
+                            </ol>
+                        </nav>
 
-                            @*@Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
-                <button type="submit"> SUBMIT </button>*@
-                            <div class="col-md-6 text-nowrap">
-                                @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), "Select Last Name", new { @class = "form-control" })
-                                <button type="submit" class="btn-primary"> Sort </button>
-                                <hr />
-                            </div>
-                        </form>
-                    }
-                    else
-                    {
-                        <form action="/CastMembers/FilterFunction2" method="get">
-
-                            @*@Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
-                <button type="submit"> SUBMIT </button>*@
-                            <div class="col-md-6 text-nowrap">
-                                @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), "Select Last Name", new { @class = "form-control" })
-                                <button type="submit" class="btn-primary"> Sort </button>
-                                <hr />
-                            </div>
-                        </form>
+                    </div>
+                    <div class="table-responsive mx-auto" style="margin-left:180px">
                         <table class="table">
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.Actors.FirstName)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.DVDDetails.Title)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(model => model.DVDDetails.NoOfCopy)
-                                </th>
-                                <th></th>
-                            </tr>
 
-                            @foreach (var item in Model)
+                            <h4 class="card-title">Select Actor's Last name to view DVD Titles and their count</h4>
+                            <hr />
+                            @if (Model == null)
                             {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Actors.FirstName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DVDDetails.Title)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.DVDDetails.NoOfCopy)
-                                    </td>
-                                </tr>
+                                <form action="/CastMembers/FilterFunction2" method="get">
+
+                                    @*@Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
+                                        <button type="submit"> SUBMIT </button>*@
+                                    <div class="col-md-6 text-nowrap">
+                                        @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), "Select Last Name", new { @class = "form-control" })
+                                        <button type="submit" class="btn-primary"> Sort </button>
+                                        <hr />
+                                    </div>
+                                </form>
+                            }
+                            else
+                            {
+                                <form action="/CastMembers/FilterFunction2" method="get">
+
+                                    @*@Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), null, null)
+                                        <button type="submit"> SUBMIT </button>*@
+                                    <div class="col-md-6 text-nowrap">
+                                        @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), "Select Last Name", new { @class = "form-control" })
+                                        <button type="submit" class="btn-primary"> Sort </button>
+                                        <hr />
+                                    </div>
+                                </form>
+                                <table class="table">
+                                    <tr>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.Actors.FirstName)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DVDDetails.Title)
+                                        </th>
+                                        <th>
+                                            @Html.DisplayNameFor(model => model.DVDDetails.NoOfCopy)
+                                        </th>
+                                        <th></th>
+                                    </tr>
+
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Actors.FirstName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DVDDetails.Title)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.DVDDetails.NoOfCopy)
+                                            </td>
+                                        </tr>
+                                    }
+
+                                </table>
                             }
 
                         </table>
-                    }
+                    </div>
+
                 </div>
             </div>
         </div>
+
+
+
     </div>
 </div>
-</div>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+
 
