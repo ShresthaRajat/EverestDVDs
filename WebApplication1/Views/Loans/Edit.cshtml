@@ -1,18 +1,23 @@
 ﻿@model WebApplication1.Models.Loan
 
 @{
+    Layout = "~/Views/Shared/Loggedin.cshtml";
+}
+@{
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+    <h2>Edit (Function 7)</h2>
+<title>Everest DVD Store - Admin Panel</title>
+<link href="~/dist/css/style.min.css" rel="stylesheet">
 
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Loan</h4>
+        <h4>Allow a user to record the return of a DVD copy.</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.LoanId)

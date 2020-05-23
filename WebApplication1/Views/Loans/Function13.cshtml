@@ -6,7 +6,7 @@
 @{
     ViewBag.Title = "Index";
 }
-<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Loans Filter No.12 Table</h4>
+<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Function 13</h4>
 <hr />
 <div class="d-flex align-items-center">
     <nav aria-label="breadcrumb">
@@ -29,12 +29,13 @@
     </div>*@
     </div>
 <hr />
+<h
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Loans Table</h4>
+                    <h4 class="card-title">Allow the user to display a list of all DVD titles in the shop where no copy of the title has been loaned in the last 31 days.</h4>
                     <hr />
                     <hr />
                     <div class="table-responsive">
@@ -46,25 +47,25 @@
                                 <th> Gap</th>
                             </tr>
 
-                            @foreach (var item in Model)
-                            {
-                                <tr>
+@foreach (var item in Model)
+{
+    <tr>
 
-                                    <td>
-                                        @item.dVDDetail.Title
+    <td>
+    @item.dVDDetail.Title
 
-                                    </td>
-                                    <td>
-                                        @item.loan.IssuedDate
+    </td>
+    <td>
+    @item.loan.IssuedDate
 
-                                    </td>
-                                    <td>
-                                        @Html.Label("", DateTime.Now.Subtract(item.loan.IssuedDate).Days.ToString())
+    </td>
+    <td>
+    @Html.Label("", DateTime.Now.Subtract(item.loan.IssuedDate).Days.ToString())
 
-                                    </td>
+    </td>
 
-                                </tr>
-                            }
+    </tr>
+}
                             </tbody>
                         </table>
                     </div>

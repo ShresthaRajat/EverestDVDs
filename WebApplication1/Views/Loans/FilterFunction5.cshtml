@@ -8,7 +8,7 @@
     ViewBag.Title = "FilterFunction5";
 }
 
-<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Loan Table</h4>
+<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Function 5</h4>
 <hr />
 <div class="d-flex align-items-center">
     <nav aria-label="breadcrumb">
@@ -24,7 +24,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Loan Filter Table</h4>
+                    <h4 class="card-title">Allow the user to enter or select a Copy by CopyNumber and find the details of the last loan for that copy</h4>
                     <hr />
                     @if (Model == null)
                     {
@@ -44,6 +44,19 @@
                     }
                     else
                     {
+                        <form action="/Loans/FilterFunction5" method="get">
+
+                            <div class="col-md-6 text-nowrap">
+                                @Html.DropDownList("NoOfCopy", new SelectList(ViewBag.NoOfCopy, "NoOfCopy", "NoOfCopy"), "Select No of Copy ", new { @class = "form-control" })
+
+                                @*@Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), "Select Last Name", new { @class = "form-control" })*@
+                                <button type="submit" class="btn-primary"> Sort </button>
+                                <hr />
+                            </div>
+                            @*@Html.DropDownList("NoOfCopy", new SelectList(ViewBag.NoOfCopy, "NoOfCopy", "NoOfCopy"), null, null)*@
+
+                            @*<button type="submit"> SUBMIT </button>*@
+                        </form>
                         <table class="table">
                             <tr>
                                 <th>

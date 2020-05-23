@@ -6,7 +6,7 @@
     ViewBag.Title = "Loan31Days";
 }
 
-<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Loan Table</h4>
+<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Function 3</h4>
 <hr />
 <div class="d-flex align-items-center">
     <nav aria-label="breadcrumb">
@@ -22,25 +22,37 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Loan Filter by 31 Days</h4>
+                    <h4 class="card-title">Allow the user to enter or select a member and view a list of all the DVDs that they have been loaned in the last 31 days.</h4>
                     <hr />
                     @if (Model == null)
                     {
-                <form action="/Loans/Loan31Days" method="get">
-                    <div class="col-md-6 text-nowrap">
-                        @Html.DropDownList("Name", new SelectList(ViewBag.MemberID, "Name", "Name"), "Select Name ", new { @class = "form-control" })
+                        <form action="/Loans/Loan31Days" method="get">
+                            <div class="col-md-6 text-nowrap">
+                                @Html.DropDownList("Name", new SelectList(ViewBag.MemberID, "Name", "Name"), "Select Name ", new { @class = "form-control" })
 
-                        @*@Html.DropDownList("NoOfCopy", new SelectList(ViewBag.NoOfCopy, "NoOfCopy", "NoOfCopy"), "Select No of Copy ", new { @class = "form-control" })*@
+                                @*@Html.DropDownList("NoOfCopy", new SelectList(ViewBag.NoOfCopy, "NoOfCopy", "NoOfCopy"), "Select No of Copy ", new { @class = "form-control" })*@
 
-                        @*@Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), "Select Last Name", new { @class = "form-control" })*@
-                        <button type="submit" class="btn-primary"> Sort </button>
-                        <hr />
-                    </div>
-                    @*<button type="submit"> SUBMIT </button>*@
-                </form>
+                                @*@Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), "Select Last Name", new { @class = "form-control" })*@
+                                <button type="submit" class="btn-primary"> Sort </button>
+                                <hr />
+                            </div>
+                            @*<button type="submit"> SUBMIT </button>*@
+                        </form>
                     }
                     else
                     {
+                        <form action="/Loans/Loan31Days" method="get">
+                            <div class="col-md-6 text-nowrap">
+                                @Html.DropDownList("Name", new SelectList(ViewBag.MemberID, "Name", "Name"), "Select Name ", new { @class = "form-control" })
+
+                                @*@Html.DropDownList("NoOfCopy", new SelectList(ViewBag.NoOfCopy, "NoOfCopy", "NoOfCopy"), "Select No of Copy ", new { @class = "form-control" })*@
+
+                                @*@Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "LastName", "LastName"), "Select Last Name", new { @class = "form-control" })*@
+                                <button type="submit" class="btn-primary"> Sort </button>
+                                <hr />
+                            </div>
+                            @*<button type="submit"> SUBMIT </button>*@
+                        </form>
                         <table class="table">
                             <tr>
                                 <th>

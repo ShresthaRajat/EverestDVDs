@@ -7,7 +7,7 @@
     Layout = "~/Views/Shared/Loggedin.cshtml";
 }
 
-<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Create DVD Detail Table</h4>
+<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Create DVD Detail Table (Function 9)</h4>
 <hr />
 <div class="d-flex align-items-center">
     <nav aria-label="breadcrumb">
@@ -18,7 +18,7 @@
     </nav>
 
 </div>
-
+<h3>Allow the user to enter a new DVD Title into the system.</h3>
 @using (Html.BeginForm("Create", "DVDDetails", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
