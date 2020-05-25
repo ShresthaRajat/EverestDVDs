@@ -46,9 +46,9 @@ The following functions as noted from the requirements are similar:
 | 1, 2, 3, 5 | Simple queries requiring user Input.|Finished|
 | 4, 8 | Simple queries to list the contents according to the stored data.|Finished|
 | 6, 7 | Issuing and Returning the DVD Copies.|Finished|
-| 9 | Adding new DVD (Complex)(also need to add castmembers.)|Not imp(AJAX)|
-| 10 | Removing 365 days old DVD Copies.|Incomplete(Pragati)|
-|11|Copies on loan order in order of date|Incomplete|
+| 9 | Adding new DVD (Complex)(also need to add castmembers.)| AJAX|
+| 10 | Removing 365 days old DVD Copies.|Finished|
+|11|Copies on loan order in order of date|Finished|
 |12|List users who havent loned in past 31 days. (Ignore users who havent Done |Finished|
 |13|List all of the dvds which have been loned in the last 31 days. |Finished|
 |14|UAC and adding manager| Incomplete|
