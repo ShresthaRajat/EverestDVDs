@@ -53,22 +53,42 @@
 
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @item.CName
-                                    </td>
-                                    <td>
-                                        @item.Name
-                                    </td>
-                                    <td>
-                                        @item.NumberOfLoans
-                                    </td>
-                                    <td>
-                                        @item.LoanStatus
-                                    </td>
+                        <tr>
+
+                            @if (item.LoanStatus == "Too much DVD")
+                            {
+                                <td style="color:red;">
+                                    @item.CName
+                                </td>
+                                <td style="color:red;">
+                                    @item.Name
+                                </td>
+                                <td style="color:red;">
+                                    @item.NumberOfLoans
+                                </td>
+                                <td style="color:red;">
+                                    @item.LoanStatus
+                                </td>
+                            }
+                            else
+                            {
+                                <td>
+                                    @item.CName
+                                </td>
+                                <td>
+                                    @item.Name
+                                </td>
+                                <td>
+                                    @item.NumberOfLoans
+                                </td>
+                                <td>
+                                    @item.LoanStatus
+                                </td>
+                            }               
 
 
-                                </tr>
+
+                        </tr>
                             }
                             </tbody>
                         </table>
