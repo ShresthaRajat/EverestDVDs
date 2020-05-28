@@ -92,19 +92,18 @@ namespace WebApplication1.Controllers
             }
             return View(dVDDetail);
         }
-        // GET: OldCopies/Delete/5
+        // GET: /OldCopies/Delete/5
         public ActionResult Delete(int? id)
         {
-            if (id == null)
+            DateTime currentDate = DateTime.Now;
+            var data = db.DVDDetails.Where(d => EntityFunctions.DiffDays(d.DateAdded, currentDate) > 365);
+            foreach (var item in data)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                db.DVDDetails.Remove(item);
             }
-            DVDDetail dVDDetail = db.DVDDetails.Find(id);
-            if (dVDDetail == null)
-            {
-                return HttpNotFound();
-            }
-            return View(dVDDetail);
+            db.SaveChanges();
+            ViewBag.Message = "Delete successful";
+            return RedirectToAction("Index");
         }
         // POST: OldCopies/Delete/5
         [HttpPost, ActionName("Delete")]
