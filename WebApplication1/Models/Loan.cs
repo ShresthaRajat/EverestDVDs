@@ -13,7 +13,7 @@ namespace WebApplication1.Models
         public int LoanId { get; set; }
         public DateTime IssuedDate { get; set; }
         public DateTime? ReturnedDate { get; set; }
-        public int TotalFine { get; set; }
+        public int? TotalFine { get; set; }
         public int DVDId { get; set; }
         [ForeignKey("DVDId")]
         public virtual DVDDetail DVDDetails { get; set; }
@@ -32,6 +32,17 @@ namespace WebApplication1.Models
         public string CName { get; set; }
         public int NumberOfLoans { get; set; }
         public string LoanStatus { get; set; }
+
+    }
+    public class CurrentLoansVM
+    {
+        [Key]
+        public int id { get; set; }
+        public string DVDCoverPath { get; set; }
+        public string Title { get; set; }
+        public string MemberName { get; set; }
+        public DateTime DateIssued { get; set; }
+        public int TotalLoan { get; set; }
 
     }
     public class Function12Model
