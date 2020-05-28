@@ -1,5 +1,7 @@
 ﻿@model WebApplication1.Models.MemberCategory
-
+@{
+    Layout = "~/Views/Shared/Loggedin.cshtml";
+}
 @{
     ViewBag.Title = "Edit";
 }
@@ -10,7 +12,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>MemberCategory</h4>
         <hr />

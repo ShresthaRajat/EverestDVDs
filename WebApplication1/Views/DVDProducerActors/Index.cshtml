@@ -5,6 +5,9 @@
 }
 @{
     ViewBag.Title = "Index";
+    string DVDName = "";
+    string Actor = "";
+    string PName = "";
 }
 
 <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Function 4</h4>
@@ -19,85 +22,57 @@
 
 </div>
 <h1>List the producer, studio and cast lists of all DVDs in the shop.</h1>
-<table class="table">
-    
-    <thead class="bg-dark text-white">
-        <tr>
+@foreach (var item in Model)
+{
+    if (item.dVDProducer.DVDDetails.DVDCoverPath != DVDName)
+    {
+        DVDName = item.dVDProducer.DVDDetails.DVDCoverPath;
+        <img src="@Url.Content(item.dVDProducer.DVDDetails.DVDCoverPath)" width="auto" height="150" />
 
-            <th>
-                First Name
-            </th>
-            <th>
-                Last Name
-            </th>
-            <th>
-                DVD Cover
-            </th>
-            <th>
-                DVD Title
-            </th>
-            <th>
-                Producer Name
-            </th>
+        <h1>@item.castMember.DVDDetails.Title</h1>
+        <h2>
+           @item.castMember.DVDDetails.Genre
+        </h2>
+        <h2>@item.castMember.DVDDetails.NoOfCopy</h2>
+        <h3>@item.castMember.DVDDetails.AgeRestriction</h3>
+        <h2>@item.castMember.DVDDetails.StudioName</h2>
 
+        @item.dVDProducer.Producers.ProducerName
 
-        </tr>
+        <table class="table">
 
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
+            <thead class="bg-dark text-white">
+                <tr>
+                    <th> Image</th>
+                    <th> First Name </th>
+                    <th> Last Name </th>
+                </tr>
 
-                <td>@item.castMember.Actors.FirstName</td>
-                <td>@item.castMember.Actors.LastName</td>
-                <td>
-                    <img src="@Url.Content(item.dVDProducer.DVDDetails.DVDCoverPath)" width="150" height="150" />
-                </td>
-                <td>@item.castMember.DVDDetails.Title</td>
-                <td>@item.dVDProducer.Producers.ProducerName</td>
-
-            </tr>
-
-        }
-    </tbody>
-</table>
-<br />
-<table class="table">
-    <thead class="bg-dark text-white">
-        <tr>
-
-            <th>
-                DVD Cover
-            </th>
-            <th>
-                DVD Title
-            </th>
-            <th>
-                Producer Name
-            </th>
-
-            <th>
-                Date Added
-
-            </th>
-        </tr>
-
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
+            </thead>
+            <tbody>
+                @foreach (var item2 in Model)
+                {
+                    if ((item2.castMember.Actors.LastName != Actor) && (item2.dVDProducer.DVDDetails.DVDCoverPath == DVDName))
+                    {
+                        Actor = item2.castMember.Actors.LastName;
+                        <tr>
+                            <td><img src="@Url.Content(item2.castMember.Actors.ImagePath)" width="auto" height="50" style="border-radius: 50%;" /></td>
+                            <td>@item2.castMember.Actors.FirstName</td>
+                            <td>@item2.castMember.Actors.LastName</td>
 
 
-                <td>
-                    <img src="@Url.Content(item.dVDProducer.DVDDetails.DVDCoverPath)" width="150" height="150" />
-                </td>
-                <td>@item.castMember.DVDDetails.Title</td>
-                <td>@item.dVDProducer.Producers.ProducerName</td>
-                <td>@item.castMember.DVDDetails.DateAdded</td>
-            </tr>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+    <p>
 
-        }
-    </tbody>
-</table>
+    </p>
+
+
+
+
+
+}
