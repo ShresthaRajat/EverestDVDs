@@ -61,6 +61,11 @@
                 @Html.ValidationMessageFor(model => model.MemberId, "", new { @class = "text-danger" })
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <h2>TotalFine:  <span style="color:red;">Rs @ViewBag.TotalFine</span></h2>
+            </div>
+        </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
