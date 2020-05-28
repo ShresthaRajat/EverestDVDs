@@ -89,10 +89,7 @@
                     <!-- ============================================================== -->
                     <!-- toggle and nav items -->
                     <!-- ============================================================== -->
-                    <ul class="navbar-nav float-left mr-auto ml-3 pl-1">
-                        
-                        
-                    </ul>
+                    <ul class="navbar-nav float-left mr-auto ml-3 pl-1"></ul>
                     <!-- ============================================================== -->
                     <!-- Right side toggle and nav items -->
                     <!-- ============================================================== -->
@@ -109,7 +106,7 @@
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
                         @Html.Partial("_Logged")
-                        
+
                         <!-- ============================================================== -->
                         <!-- User profile and search -->
                         <!-- ============================================================== -->
@@ -183,75 +180,9 @@
                                         </span>
                                     </a>
                                 </li>
-                                <li class="sidebar-item">
-                                    <a href="~/DVDProducerActors" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Filter Function 4
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="~/DVDDetails/Create" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Filter Function 9
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="~/oldcopies" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Filter Function 10
-                                        </span>
-                                    </a>
-                                </li>
+
                             </ul>
                         </li>
-
-                        @*<li class="sidebar-item">
-            <a class="sidebar-link sidebar-link" href="~/CastMembers"
-               aria-expanded="false">
-                <i data-feather="message-square" class="feather-icon"></i><span class="hide-menu">Chat</span>
-            </a>
-        </li>
-        <li class="sidebar-item">
-            <a class="sidebar-link sidebar-link" href="app-calendar.html"
-               aria-expanded="false">
-                <i data-feather="calendar" class="feather-icon"></i><span class="hide-menu">Calendar</span>
-            </a>
-        </li>*@
-
-                        @*<li class="list-divider"></li>
-        <li class="nav-small-cap"><span class="hide-menu">Components</span></li>*@
-                        @*<li class="sidebar-item">
-            <a class="sidebar-link has-arrow" href="javascript:void(0)"
-               aria-expanded="false">
-                <i data-feather="file-text" class="feather-icon"></i><span class="hide-menu">CastMembers </span>
-            </a>
-            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                <li class="sidebar-item">
-                    <a href="~/CastMembers" class="sidebar-link">
-                        <span class="hide-menu">
-                            CastMembers Index
-                        </span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="~/CastMembers/FilterByLastName" class="sidebar-link">
-                        <span class="hide-menu">
-                            DVDs By actor
-                        </span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="~/CastMembers/FilterFunction2" class="sidebar-link">
-                        <span class="hide-menu">
-                            DVD count By actors
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </li>*@
-
                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow" href="javascript:void(0)"
                                aria-expanded="false">
@@ -272,10 +203,121 @@
                                         </span>
                                     </a>
                                 </li>
+
+                            </ul>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="~/Loans"
+                               aria-expanded="true">
+                                <i data-feather="credit-card" class="feather-icon"></i>
+                                <span class="hide-menu">
+                                    Loans 
+                                </span>
+                            </a>
+                        </li>
+
+                        
+                        <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
+                               aria-expanded="false">
+                                <i data-feather="sidebar" class="feather-icon"></i><span class="hide-menu">Functions</span>
+                            </a>
+                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
+                                <li class="sidebar-item">
+                                    <a href="~/CastMembers/FilterByLastName" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 1 (Home)
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/CastMembers/FilterFunction2" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 2 (Home)
+                                        </span>
+                                    </a>
+                                </li>
                                 <li class="sidebar-item">
                                     <a href="~/Loans/Loan31Days" class="sidebar-link">
                                         <span class="hide-menu">
-                                            FilterFunction3
+                                            Function 3
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/DVDProducerActors" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 4
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/Loans/FilterFunction5" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 5
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/Loans/Create" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 6
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/Loans/" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 7
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/Loans/FunctionNo8" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 8
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/DVDDetails/Create" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 9
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/oldcopies" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 10
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/Loans/CurrentLoanContoller" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 11
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/Loans/Function12" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 12
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/Loans/Function13" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 13
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="~/Manage/ChangePassword" class="sidebar-link">
+                                        <span class="hide-menu">
+                                            Function 14
                                         </span>
                                     </a>
                                 </li>
@@ -283,289 +325,7 @@
                             </ul>
                         </li>
 
-                        <li class="sidebar-item">
-                            <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                               aria-expanded="false">
-                                <i data-feather="credit-card" class="feather-icon"></i><span class="hide-menu">Loans </span>
-                            </a>
-                            <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                                <li class="sidebar-item">
-                                    <a href="~/Loans" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            Loans Index
-                                        </span>
-                                    </a>
-                                </li>
 
-                                <li class="sidebar-item">
-                                    <a href="~/Loans/FilterFunction5" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            FilterFunction5
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="~/Loans/Create" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            FilterFunction6
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="~/Loans/FunctionNo8" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            FilterFunction8
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="~/Loans/Function12" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            FilterFunction12
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-item">
-                                    <a href="~/Loans/Function13" class="sidebar-link">
-                                        <span class="hide-menu">
-                                            FilterFunction13
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-
-
-                            @*<li class="sidebar-item">
-                <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                   aria-expanded="false">
-                    <i data-feather="box" class="feather-icon"></i><span class="hide-menu">UI Elements </span>
-                </a>
-                <ul aria-expanded="false" class="collapse  first-level base-level-line">
-                    <li class="sidebar-item">
-                        <a href="ui-buttons.html" class="sidebar-link">
-                            <span class="hide-menu">
-                                Buttons
-                            </span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-modals.html" class="sidebar-link">
-                            <span class="hide-menu"> Modals </span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-tab.html" class="sidebar-link">
-                            <span class="hide-menu"> Tabs </span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-tooltip-popover.html" class="sidebar-link">
-                            <span class="hide-menu">
-                                Tooltip &
-                                Popover
-                            </span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-notification.html" class="sidebar-link">
-                            <span class="hide-menu">Notification</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-progressbar.html" class="sidebar-link">
-                            <span class="hide-menu">Progressbar</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-typography.html" class="sidebar-link">
-                            <span class="hide-menu">Typography</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-bootstrap.html" class="sidebar-link">
-                            <span class="hide-menu">
-                                Bootstrap
-                                UI
-                            </span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-breadcrumb.html" class="sidebar-link">
-                            <span class="hide-menu">Breadcrumb</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-list-media.html" class="sidebar-link">
-                            <span class="hide-menu">
-                                List
-                                Media
-                            </span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-grid.html" class="sidebar-link">
-                            <span class="hide-menu"> Grid </span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-carousel.html" class="sidebar-link">
-                            <span class="hide-menu">
-                                Carousel
-                            </span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-scrollspy.html" class="sidebar-link">
-                            <span class="hide-menu">
-                                Scrollspy
-                            </span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-toasts.html" class="sidebar-link">
-                            <span class="hide-menu"> Toasts</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="ui-spinner.html" class="sidebar-link">
-                            <span class="hide-menu"> Spinner </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="sidebar-item">
-                <a class="sidebar-link sidebar-link" href="ui-cards.html"
-                   aria-expanded="false">
-                    <i data-feather="sidebar" class="feather-icon"></i><span class="hide-menu">
-                        Cards
-                    </span>
-                </a>
-            </li>
-            <li class="list-divider"></li>
-            <li class="nav-small-cap"><span class="hide-menu">Authentication</span></li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link sidebar-link" href="authentication-login1.html"
-                   aria-expanded="false">
-                    <i data-feather="lock" class="feather-icon"></i><span class="hide-menu">
-                        Login
-                    </span>
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a class="sidebar-link sidebar-link"
-                   href="authentication-register1.html" aria-expanded="false">
-                    <i data-feather="lock"
-                       class="feather-icon"></i><span class="hide-menu">
-                        Register
-                    </span>
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                   aria-expanded="false">
-                    <i data-feather="feather" class="feather-icon"></i><span class="hide-menu">
-                        Icons
-                    </span>
-                </a>
-                <ul aria-expanded="false" class="collapse first-level base-level-line">
-                    <li class="sidebar-item">
-                        <a href="icon-fontawesome.html" class="sidebar-link">
-                            <span class="hide-menu"> Fontawesome Icons </span>
-                        </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a href="icon-simple-lineicon.html" class="sidebar-link">
-                            <span class="hide-menu"> Simple Line Icons </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="sidebar-item">
-                <a class="sidebar-link has-arrow" href="javascript:void(0)"
-                   aria-expanded="false">
-                    <i data-feather="crosshair" class="feather-icon"></i><span class="hide-menu">
-                        Multi
-                        level
-                        dd
-                    </span>
-                </a>
-                <ul aria-expanded="false" class="collapse first-level base-level-line">
-                    <li class="sidebar-item">
-                        <a href="javascript:void(0)" class="sidebar-link">
-                            <span class="hide-menu"> item 1.1</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="javascript:void(0)" class="sidebar-link">
-                            <span class="hide-menu"> item 1.2</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="has-arrow sidebar-link" href="javascript:void(0)"
-                           aria-expanded="false"><span class="hide-menu">Menu 1.3</span></a>
-                        <ul aria-expanded="false" class="collapse second-level base-level-line">
-                            <li class="sidebar-item">
-                                <a href="javascript:void(0)" class="sidebar-link">
-                                    <span class="hide-menu">
-                                        item
-                                        1.3.1
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="javascript:void(0)" class="sidebar-link">
-                                    <span class="hide-menu">
-                                        item
-                                        1.3.2
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="javascript:void(0)" class="sidebar-link">
-                                    <span class="hide-menu">
-                                        item
-                                        1.3.3
-                                    </span>
-                                </a>
-                            </li>
-                            <li class="sidebar-item">
-                                <a href="javascript:void(0)" class="sidebar-link">
-                                    <span class="hide-menu">
-                                        item
-                                        1.3.4
-                                    </span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="javascript:void(0)" class="sidebar-link">
-                            <span class="hide-menu">
-                                item
-                                1.4
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="list-divider"></li>
-            <li class="nav-small-cap"><span class="hide-menu">Extra</span></li>
-            <li class="sidebar-item">
-                <a class="sidebar-link sidebar-link" href="../../docs/docs.html"
-                   aria-expanded="false">
-                    <i data-feather="edit-3" class="feather-icon"></i><span class="hide-menu">Documentation</span>
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a class="sidebar-link sidebar-link" href="authentication-login1.html"
-                   aria-expanded="false">
-                    <i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Logout</span>
-                </a>
-            </li>*@
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
@@ -584,15 +344,6 @@
 
 
                     </div>
-                    @*<div class="col-5 align-self-center">
-                            <div class="customize-input float-right">
-                                <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
-                                    <option selected>Aug 19</option>
-                                    <option value="1">July 19</option>
-                                    <option value="2">Jun 19</option>
-                                </select>
-                            </div>
-                        </div>*@
                 </div>
                 <hr />
 
