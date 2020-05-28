@@ -1,0 +1,136 @@
+﻿@model IEnumerable<WebApplication1.Models.CurrentLoansVM>
+@{
+    Layout = "~/Views/Shared/Loggedin.cshtml";
+}
+@{
+
+    ViewBag.Title = "CurrentLoanContoller";
+    string DVDName = "";
+    string dvdtit = "";
+}
+    <style>
+        table {
+            empty-cells: hide;
+        }
+    </style>
+
+<h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Function 11</h4>
+<hr />
+<div class="d-flex align-items-center">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb m-0 p-0">
+            <li class="breadcrumb-item"><a href="index.html" class="text-muted">Home</a></li>
+            <li class="breadcrumb-item text-muted active" aria-current="page">Loans Table</li>
+        </ol>
+    </nav>
+
+</div>
+
+@*<div class="col-5 align-self-center">
+        <div class="customize-input float-right">
+            <select class="custom-select custom-select-set form-control bg-white border-0 custom-shadow custom-radius">
+                <option selected>Aug 19</option>
+                <option value="1">July 19</option>
+                <option value="2">Jun 19</option>
+            </select>
+        </div>
+    </div>*@
+    </div>
+<hr />
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        List of all Title of the DVD, the copy number and the member
+                    </h4>
+                    <hr />
+                    <hr />
+                    <div class="table-responsive">
+
+
+                        <table class="table">
+                            <tr>
+                                <th>
+                                    Cover Image
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Title)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.MemberName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.DateIssued)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.TotalLoan)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+
+                                    <td>
+                                        @if (item.Title != DVDName)
+                                        {
+                                            DVDName = item.Title;
+                                            <img src="@Url.Content(item.DVDCoverPath)" width="auto" height="150" />
+                                        }
+                                    </td>
+
+                                    <td>
+                                        @if (item.Title != dvdtit)
+                                        {
+                                            dvdtit = item.Title;
+                                            @Html.DisplayFor(modelItem => item.Title)
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MemberName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.DateIssued)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.TotalLoan)
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script>
+    function spanRow(column) {
+        var categoryColumn = $("table tr td:nth-child(" + column + ")");
+        var rowspan = 1;
+        var lastElement = categoryColumn.first();
+        categoryColumn.each(function () {
+            var element = $(this);
+            if ($.trim(element.html()) == '') {
+                element.remove();
+                rowspan++;
+            } else {
+                lastElement.attr("rowspan", rowspan);
+                lastElement = element;
+                rowspan = 1;
+            }
+        });
+        lastElement.attr("rowspan", rowspan);
+    }
+
+
+    spanRow(2);
+    spanRow(1);
+</script>
