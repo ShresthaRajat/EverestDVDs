@@ -36,7 +36,34 @@ namespace WebApplication1.Controllers
             }
             return View(loan);
         }
+        public ActionResult CurrentLoanContoller()
+        {
+            var loan = (from c in db.Loans
+                      //  where c.ReturnedDate==null //This has been commented for a while
+                        group c by new { c.IssuedDate } into gp
+                        select new
+                        {
+                            DateIssued = gp.Key.IssuedDate,
+                            count = gp.Count()
+                        }).ToList();
+            var totalCount = (from ln in loan
+                              join d in db.Loans on ln.DateIssued equals d.IssuedDate
+                              join l in db.Members on d.MemberId equals l.MemberId
+                              join m in db.DVDDetails on d.DVDId equals m.DVDId
+                              select new CurrentLoansVM()
+                              {
+                                  DVDCoverPath = m.DVDCoverPath,
+                                  Title = m.Title,
+                                  MemberName = l.Name,
+                                  DateIssued = d.IssuedDate,
+                                  TotalLoan = ln.count
 
+                              }
+                              ).Distinct().OrderBy(d => d.Title).ThenBy(d => d.Title).ToList();
+
+            //var sorted = data.OrderBy(d => d.DateIssued).ThenBy(d => d.DVD.Title);
+            return View(totalCount);
+        }
         // Function 5
 
         public ActionResult FilterFunction5(String NoOfCopy)
@@ -170,7 +197,7 @@ namespace WebApplication1.Controllers
                             }
                             else
                             {
-                                ViewBag.ErrorMessage = "This Nigga is too small to watch the movie";
+                                ViewBag.ErrorMessage = "This user is too small to watch the movie";
                                 return View();
                             }
                         }
@@ -320,6 +347,8 @@ namespace WebApplication1.Controllers
             }
             ViewBag.DVDId = new SelectList(db.DVDDetails, "DVDId", "Title", loan.DVDId);
             ViewBag.MemberId = new SelectList(db.Members, "MemberId", "Name", loan.MemberId);
+            loan.ReturnedDate = DateTime.Now;
+            ViewBag.TotalFine = (DateTime.Now - loan.IssuedDate).Days * loan.TotalFine;
             return View(loan);
         }
 
