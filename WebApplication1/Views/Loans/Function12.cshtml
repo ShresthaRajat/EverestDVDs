@@ -4,6 +4,7 @@
 }
 @{
     ViewBag.Title = "Index";
+    string Mname = "";
 }
 <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Function 12</h4>
 <hr />
@@ -39,33 +40,46 @@
                     <div class="table-responsive">
                         <table class="table">
                             <tr>
-                                <th></th>
+                                <th>Member Name</th>
+                                <th>Member Address</th>
+
+                                <th>DVD Title </th>
+                                <th>Issue Date</th>
+                                <th>Days Since Loan</th>
+
                             </tr>
+
 
                             @foreach (var item in Model)
                             {
-                                <tr>
-                                    <td>
-                                        @item.member.Name
-                                    </td>
-                                    <td>
-                                        @item.member.Address
+                       
+                        <tr>
+                            @if (Mname != item.member.Name)
+                            {
 
-                                    </td>
-                                    <td>
-                                        @item.dVDDetail.Title
+                                Mname = item.member.Name;
+                        <td>
+                            @item.member.Name
+                        </td>
+                        <td>
+                            @item.member.Address
 
-                                    </td>
-                                    <td>
-                                        @item.loan.IssuedDate
+                        </td>
+                        <td>
+                            @item.dVDDetail.Title
 
-                                    </td>
-                                    <td>
-                                        @Html.Label("", DateTime.Now.Subtract(item.loan.IssuedDate).Days.ToString())
+                        </td>
+                        <td>
+                            @item.loan.IssuedDate
 
-                                    </td>
+                        </td>
+                        <td>
+                            @Html.Label("", DateTime.Now.Subtract(item.loan.IssuedDate).Days.ToString())
 
-                                </tr>
+                        </td>
+}
+
+                        </tr>
                             }
                             </tbody>
                         </table>
@@ -77,39 +91,39 @@
 </div>
 
 @*
-<p>
-   @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    
-    <tr>
-        <th></th>
-    </tr>
+    <p>
+       @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
 
-    @foreach (var item in Model)
-    {
         <tr>
-            <td>
-                @item.member.Name
-            </td>
-            <td>
-                @item.member.Address
-
-            </td>
-            <td>
-                @item.dVDDetail.Title
-
-            </td>
-            <td>
-                @item.loan.IssuedDate
-
-            </td>
-            <td>
-                @Html.Label("", DateTime.Now.Subtract(item.loan.IssuedDate).Days.ToString())
-
-            </td>
-
+            <th></th>
         </tr>
-    }
 
-</table>*@
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.member.Name
+                </td>
+                <td>
+                    @item.member.Address
+
+                </td>
+                <td>
+                    @item.dVDDetail.Title
+
+                </td>
+                <td>
+                    @item.loan.IssuedDate
+
+                </td>
+                <td>
+                    @Html.Label("", DateTime.Now.Subtract(item.loan.IssuedDate).Days.ToString())
+
+                </td>
+
+            </tr>
+        }
+
+    </table>*@

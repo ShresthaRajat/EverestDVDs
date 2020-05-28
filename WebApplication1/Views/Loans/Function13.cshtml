@@ -5,7 +5,10 @@
 }
 @{
     ViewBag.Title = "Index";
+    string DVDName = "";
+    string dvdtit = "";
 }
+
 <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Function 13</h4>
 <hr />
 <div class="d-flex align-items-center">
@@ -42,30 +45,36 @@
                         <table class="table">
                             <tbody>
                             <tr>
+                                <th> DVD Cover </th>
                                 <th> Title</th>
                                 <th> Issue Date</th>
-                                <th> Gap</th>
+                                <th> Gap Days</th>
                             </tr>
 
-@foreach (var item in Model)
-{
-    <tr>
+                            @foreach (var item in Model)
+                            {
+                            <tr>
+                                @if (item.dVDDetail.DVDCoverPath != DVDName)
+                                {
+                                    DVDName = item.dVDDetail.DVDCoverPath;
+                                    <td>
+                                        <img src="@Url.Content(item.dVDDetail.DVDCoverPath)" width="150" height="150" />
+                                    </td>
+                                    <td>
+                                        @item.dVDDetail.Title
 
-    <td>
-    @item.dVDDetail.Title
+                                    </td>
+                                    <td>
+                                        @item.loan.IssuedDate
 
-    </td>
-    <td>
-    @item.loan.IssuedDate
+                                    </td>
+                                    <td>
+                                        @Html.Label("", DateTime.Now.Subtract(item.loan.IssuedDate).Days.ToString())
 
-    </td>
-    <td>
-    @Html.Label("", DateTime.Now.Subtract(item.loan.IssuedDate).Days.ToString())
-
-    </td>
-
-    </tr>
-}
+                                    </td>
+                                }
+                                </tr>
+                            }
                             </tbody>
                         </table>
                     </div>
@@ -74,44 +83,3 @@
         </div>
     </div>
 </div>
-
-
-@*<p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <tr>
-            <th> Title</th>
-            <th> Issue Date</th>
-            <th> Gap</th>
-        </tr>
-
-        @foreach (var item in Model)
-        {
-            <tr>
-
-                <td>
-                    @item.dVDDetail.Title
-
-                </td>
-                <td>
-                    @item.loan.IssuedDate
-
-                </td>
-                <td>
-                    @Html.Label("", DateTime.Now.Subtract(item.loan.IssuedDate).Days.ToString())
-
-                </td>
-
-            </tr>
-        }
-
-    </table>*@
