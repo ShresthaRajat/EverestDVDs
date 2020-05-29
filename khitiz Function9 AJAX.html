@@ -1,0 +1,595 @@
+﻿@model GroupworkAD.Models.DVD
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Add  A New Movie Title to the System</h2>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        $("#addexistingProducer").click(function () {
+            var x = $("#producer_dropdown").clone();
+            x.css('visibility', 'visible');
+            $("#add_producer_dropdown").append(x);
+            $("#removeOldProducer").css("visibility", "visible");
+            console.log(pNumberfromDD());
+
+
+        });
+
+
+
+        $("#addexistingActor").click(function () {
+            var x = $("#actor_dropdown").clone();
+            x.css('visibility', 'visible');
+
+            $("#add_actor_dropdown").append(x);
+
+
+
+
+            console.log(aNumberfromDD());
+            if (aNumberfromDD() == 1) {
+
+                $("#removeOldActor").css('visibility', 'visible')
+            }
+
+        });
+
+
+
+        $("#removeOldActor").click(function () {
+            $('#add_actor_dropdown > div').last().remove();
+            aNumberfromDD();
+
+            if (aNumberfromDD() == 0) {
+
+                $("#removeOldActor").css('visibility', 'hidden')
+            }
+
+        });
+
+        function aNumberfromDD() {
+            var count = $("#add_actor_dropdown").children().length;
+            return (count);
+        }
+
+        function pNumberfromDD() {
+            var count = $("#add_producer_dropdown").children().length;
+            return (count);
+        }
+        function pNumberfromTB() {
+            var count = $("#add_producer_text").children().length;
+
+
+            return (count);
+        }
+        function aNumberfromTB() {
+            var count = $("#add_actor_text").children().length;
+
+
+            return (count);
+        }
+
+
+        $("#removeOldProducer").click(function () {
+            $('#add_producer_dropdown > div').last(find("select")).remove();
+            pNumberfromDD();
+
+            if (pNumberfromDD() == 0) {
+
+                $("#removeOldProducer").css('visibility', 'hidden');
+
+            }
+
+        });
+
+        $("#newactor").on("click", function () {
+
+
+            $("#add_actor_text").append("<div id='newactor'><input class='form-control'  type='text' id='FirstName'  placeholder='First Name'/><input class='form-control' type='text' id='FirstName'  placeholder='Middle Name' '/><input type='text' class='form-control'  placeholder='LastName' />"
+
+            );
+            $("#deletelastnewactor").css('visibility', 'visible');
+            console.log(aNumberfromTB());
+        });
+
+        $("#newproducer").on("click", function () {
+
+
+            $("#add_producer_text").append("<div id='now'><input class='form-control' type='text' id='FirstName'  placeholder='First Name' /><input class='form-control' type='text' id='FirstName'  placeholder='Middle Name' /><input type='text' class='form-control'  placeholder='LastName'/><br>"
+
+            );
+            $("#deletelastnewprod").css('visibility', 'visible');
+            console.log(pNumberfromTB());
+        });
+
+        $("#deletelastnewprod").click(function () {
+            $('#add_producer_text > div').last().remove();
+
+            if (pNumberfromTB() == 0) {
+                $("#deletelastnewprod").css('visibility', 'hidden');
+            }
+        });
+
+        $("#deletelastnewactor").click(function () {
+            $('#add_actor_text > div').last().remove();
+            if (aNumberfromTB() == 0) {
+                $("#deletelastnewactor").css('visibility', 'hidden');
+            }
+        });
+
+
+
+        $("#Add").on("click", function () {
+            $('#studio').hide();
+
+
+            $("#textboxDiv").append("<div><input class='form-control' type='text' id='studioName' name='newStudio' placeholder='Name of Studio'/><input type='text' class='form-control' name='studioCountry' id='studioCountry' placeholder='Country'/></div><div id='cancelAdd' style='cursor:pointer'><u>cancel</u></div> ");
+
+            $("#cancelAdd").click(function () {
+                $("#textboxDiv").empty();
+                $('#studio').show();
+                $('#Add').show();
+
+            });
+
+
+
+
+
+            $(this).hide();
+
+        });
+
+
+
+
+
+        $("#submit").click(function () {
+
+
+
+            var title = $('input[name="Title"]').val();
+            var restriction = $("#myselect option:selected").text();
+            var yearrealeased = $('input[name="YearReleased"]').val();
+            var CoverImagePath = $('input[name="CoverImagePath"]').val();
+            var RentPrice = $('input[name="RentPrice"]').val();
+
+            var newStudio = $('input[name="newStudio"]').val();
+            var studioCountry = $('input[name="studioCountry"]').val();
+
+
+            console.log(title, restriction, yearrealeased, CoverImagePath, RentPrice);
+
+            if ($("#Add").css('display') == 'none') {
+
+                console.log("------------DATA TO Studio Table-----------");
+                 $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddNewStudio", "Studios")",
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                     data: JSON.stringify({ name: newStudio, country: studioCountry }),
+                success: function (data) {
+                    console.log(data);
+
+
+                    addmovies(data);
+                },
+                error: function (data) {
+                    alert('error');
+
+                    console.log(data.studio_id);
+                }
+            });
+
+
+            }
+
+            else {
+
+                var studio_id = $("#studio option:selected").val();
+            console.log("------------DATA TO MOvies Table-----------");
+                addmovies(studio_id);
+
+
+        }
+
+
+
+            function addmovies(studio_id) {
+                console.log("I am adding movies now");
+                console.log(title, restriction, yearrealeased, CoverImagePath, RentPrice, studio_id);
+
+                  $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddNewMovie", "DVDs")",
+                contentType: 'application/json; charset=utf-8',
+                      dataType: "json",
+
+                      data: JSON.stringify({ title:title, res:restriction, reldate:yearrealeased, ci:CoverImagePath, rp:RentPrice,si:studio_id }),
+                success: function (data) {
+                    console.log("The dvd id is" + data);
+
+
+                    console.log("The NEWLY FORMED DVDID IS:");
+
+                    addCopies(data);
+
+
+
+                },
+                error: function (data) {
+                    alert('error');
+
+                }
+            });
+
+            }
+
+
+
+           // addCopies(1);
+
+            function addCopies(dvdid) {
+                console.log("ADDING COPIES");
+                console.log("OUTSIDE  The DVDID IS:", window.value);
+                var x = ($('input[name="copynumber"]').val());
+                console.log(x);
+                for (i = 0; i < x; i++) {
+
+                    console.log("INto lopp");
+
+                    $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddNewCopy", "DVDs")",
+                contentType: 'application/json; charset=utf-8',
+                      dataType: "json",
+
+                        data: JSON.stringify({ dvdid: dvdid }),
+                        success: function (data) {
+
+                },
+                error: function (data) {
+                    alert('error');
+
+                }
+                    });
+
+                }
+                   $('#add_producer_dropdown').find('select').each(function () {
+
+
+                var x=($(this).val())
+                $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddProducertoMovie", "DVDs")",
+                contentType: 'application/json; charset=utf-8',
+                      dataType: "json",
+
+                    data: JSON.stringify({ movie_id: dvdid, producer_id:x}),
+                success: function (data) {
+                    console.log(data);
+
+                },
+                error: function (data) {
+                    alert('error');
+
+                }
+            });
+
+                   });
+
+                var newproducer = [];
+            $('#add_producer_text').find('input[type=text]').each(function (index) {
+                {
+
+
+                    newproducer.push($(this).val());
+
+
+                }
+            });
+            console.log(newproducer.length);
+            for ( y = 0; y < (pNumberfromTB()); y++){
+            console.log("Iteration --> ",y);
+                var x = newproducer.slice(y * 3, 3*(y+1));
+
+
+                var  first_name=(x[0]);
+              var   middle_name=(x[1]);
+               var last_name=(x[2]);
+
+                   $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddNewProducertoMovie", "DVDs")",
+                contentType: 'application/json; charset=utf-8',
+                      dataType: "json",
+
+                       data: JSON.stringify({ first_name: first_name, middle_name: middle_name, last_name: last_name, dvd_id: dvdid }),
+                success: function (data) {
+                    console.log(data);
+
+                },
+                error: function (data) {
+                    alert('error');
+
+                }
+            });
+
+
+                }
+
+            $('#add_actor_dropdown').find('select').each(function () {
+
+                var x=($(this).val());
+                $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddActortoMovie", "DVDs")",
+                contentType: 'application/json; charset=utf-8',
+                      dataType: "json",
+
+                    data: JSON.stringify({ movie_id: dvdid, actor_id: x }),
+                success: function (data) {
+                    console.log(data);
+
+                },
+                error: function (data) {
+                    alert('error');
+
+                }
+            });
+
+            });
+
+            var newactor = [];
+            $('#add_actor_text').find('input[type=text]').each(function (index) {
+                {
+
+
+                    newactor.push($(this).val());
+
+                }
+            });
+            console.log(newactor.length);
+            for (y = 0; y < (aNumberfromTB()); y++) {
+
+                console.log("Iteration --> ", y);
+                var x = newactor.slice(y * 3, 3 * (y + 1));
+                console.log("length of x: " + x.length);
+               var  first_name=(x[0]);
+              var   middle_name=(x[1]);
+               var last_name=(x[2]);
+
+                   $.ajax({
+                type: "POST",
+                url: "@Url.Action("AddNewActortoMovie", "DVDs")",
+                contentType: 'application/json; charset=utf-8',
+                      dataType: "json",
+
+                       data: JSON.stringify({ first_name: first_name, middle_name: middle_name, last_name: last_name, dvd_id: dvdid }),
+                success: function (data) {
+                    console.log(data);
+
+                },
+                error: function (data) {
+                    alert('error');
+
+                }
+            });
+
+            }
+
+            }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        });
+
+
+
+    });
+
+</script>
+<style>
+    .form-control {
+        display: inline;
+    }
+    .col-md-4{
+        margin-bottom:10px;
+    }
+
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="row" style="border:1px solid blue;margin:5px;padding:10px">
+    
+    <h4>Enter the DVD Details Here</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="row">
+        @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+        </div>
+    </div>
+   
+    <div class="row">
+        
+        <label class="col-md-2"><b>Number of Copies</b></label>
+        <div class="col-md-4" id="copy_parent">
+            <input type="text" class="form-control" id="copy_child" placeholder="Enter number of Copies here" name="copynumber">
+        </div>
+
+    </div>
+
+    <div class="row">
+        <label class="col-md-2"><b>Age Restriction</b></label>
+        <div class="col-md-4" id="copy_parent">
+
+            <select id="myselect" class="form-control">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+
+            </select>
+        </div>
+    </div>
+
+    <div class="row ">
+        @Html.LabelFor(model => model.YearReleased, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.YearReleased, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.YearReleased, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.RentPrice, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.RentPrice, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.RentPrice, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(model => model.CoverImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.EditorFor(model => model.CoverImagePath, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CoverImagePath, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="row">
+
+
+        @Html.LabelFor(model => model.StudioId, "Studio", htmlAttributes: new { @class = "control-label col-md-2" })
+
+        <div class="col-md-4">
+            @Html.DropDownList("StudioId", null, htmlAttributes: new { @class = "form-control", @id = "studio" })
+            @Html.ValidationMessageFor(model => model.StudioId, "", new { @class = "" })
+        </div>
+        <div class="col-md-6">
+            <div id="Add" style="cursor:pointer;color:white;background-color:darkred;padding:10px;">Not in the list?? CLick Here to add a new Studio</div>
+
+        </div>
+        <div class="col-md-10">
+            <div id="textboxDiv"></div>
+        </div>
+
+    </div>
+
+    <div class="row" style="">
+        <label class="col-md-6"><b> ADD Producers</b></label><br>
+        <div class="col-md-3 bg-info" style="padding:10px;">LIST OF ALL AVALIABLE PRODUCERS</div>
+        <div id="producer_dropdown" class="col-md-3">
+
+            @Html.DropDownList("LastName", new SelectList(ViewBag.LastName, "ProducerId", "fullname"), null, htmlAttributes: new { @class = "form-control oldProducer" })
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div id="newproducer" style="background-color:cornsilk;color:black;cursor:pointer;padding:5px;margin-left:5px;">
+                Click Here to  Add New Producer
+            </div>
+        </div>
+
+
+        <div id="add_producer_text" class="col-md-9">
+
+        </div><div id="deletelastnewprod" style="color:white;background-color:red;cursor:pointer;visibility:hidden;padding:10px;" class="col-md-1">DELETE</div>
+
+
+
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-2">
+            <div id="addexistingProducer" style="background-color:blueviolet;color:white;cursor:pointer;padding:5px;margin-left:5px;">
+                Click Here to Add New Dropdown for Producer
+            </div>
+        </div>
+        <div id="add_producer_dropdown" class="col-md-8">
+        </div>
+        <span id="removeOldProducer" style="background-color:red;color:white;cursor:pointer;padding:10px; visibility:hidden">
+            Delete Last Entry
+        </span>
+    </div>
+
+    <br>
+    <div class="row" style="">
+        <label class="col-md-6"><b> ADD Cast Members</b></label>
+        <div class="col-md-3 bg-info" style="padding:10px;">LIST OF ALL AVALIABLE Cast Members</div>
+        <div id="actor_dropdown" class="col-md-3 ">
+
+            @Html.DropDownList("Actor", new SelectList(ViewBag.Actor, "ActorId", "fullname"), null, htmlAttributes: new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <div id="newactor" style="background-color:cornsilk;color:black;cursor:pointer;padding:5px;margin-left:5px;">
+                Click Here to  Add New Cast Member
+            </div>
+        </div>
+
+
+        <div id="add_actor_text" class="col-md-9">
+
+        </div><div id="deletelastnewactor" style="color:white;background-color:red;cursor:pointer;visibility:hidden;padding:10px;" class="col-md-1">DELETE</div>
+
+
+
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-2">
+            <div id="addexistingActor" style="background-color:blueviolet;color:white;cursor:pointer;padding:5px;margin-left:5px;">
+                Click Here to Add New Dropdown for Actor
+            </div>
+        </div>
+        <div id="add_actor_dropdown" class="col-md-8">
+        </div>
+        <span id="removeOldActor" style="background-color:red;color:white;cursor:pointer;padding:10px; visibility:hidden">
+            Delete Last Entry
+        </span>
+    </div>
+
+
+
+
+
+    <br>
+
+    <center><div class="btn-danger" style="padding:10px;width:200px;cursor:pointer" id="submit">Submit</div></center>
+
+</div>
+}
+
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
